@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Content Button Example</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .demo-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .demo-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        /* CSS Content Button Implementation */
+        .css-content-button {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            outline: none;
+        }
+
+        .css-content-button::before {
+            content: var(--button-content);
+            display: block;
+        }
+
+        .css-content-button:focus-visible {
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        /* Primary variant */
+        .css-content-button--primary {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+
+        .css-content-button--primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        /* Success variant */
+        .css-content-button--success {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+
+        .css-content-button--success:hover {
+            background-color: #1e7e34;
+            transform: translateY(-1px);
+        }
+
+        /* Danger variant */
+        .css-content-button--danger {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            font-size: 16px;
+        }
+
+        .css-content-button--danger:hover {
+            background-color: #c82333;
+            transform: translateY(-1px);
+        }
+
+        /* Traditional button for comparison */
+        .traditional-button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .traditional-button:hover {
+            background-color: #545b62;
+            transform: translateY(-1px);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Content Button Demo</h1>
+
+    <p>This page demonstrates the CSS content button technique for SEO-friendly buttons that don't affect keyword
+        density.</p>
+
+    <div class="demo-section">
+        <h3>🎯 The Problem</h3>
+        <p>When you have many buttons with the same text on a page, it can negatively impact your SEO keyword density.
+            For example, if you have 40 "Play" buttons, the word "Play" appears 40 times in your HTML, which can dilute
+            your main keywords.</p>
+    </div>
+
+    <div class="demo-section">
+        <h3>✅ The Solution: CSS Content Buttons</h3>
+        <p>These buttons use CSS <code>::before</code> pseudo-elements with the <code>content</code> property to display
+            text. The button text is not in the HTML, so it doesn't affect keyword density!</p>
+
+        <button class="css-content-button css-content-button--primary" style="--button-content: 'Play Video'"
+            onclick="alert('CSS Content Button clicked!')">
+        </button>
+
+        <button class="css-content-button css-content-button--success" style="--button-content: 'Download'"
+            onclick="alert('Download button clicked!')">
+        </button>
+
+        <button class="css-content-button css-content-button--danger" style="--button-content: 'Delete'"
+            onclick="alert('Delete button clicked!')">
+        </button>
+
+        <div class="highlight">
+            <strong>SEO Benefit:</strong> The text "Play Video", "Download", and "Delete" are displayed visually but are
+            not present in the HTML source code, so they don't affect your page's keyword density!
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h3>❌ Traditional Buttons (for comparison)</h3>
+        <p>These traditional buttons have text in the HTML, which affects keyword density:</p>
+
+        <button class="traditional-button" onclick="alert('Traditional button clicked!')">Play Video</button>
+        <button class="traditional-button" onclick="alert('Traditional button clicked!')">Download</button>
+        <button class="traditional-button" onclick="alert('Traditional button clicked!')">Delete</button>
+
+        <div class="highlight">
+            <strong>SEO Impact:</strong> The text "Play Video", "Download", and "Delete" are in the HTML and will be
+            counted toward your keyword density.
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h3>📊 Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Traditional Buttons</th>
+                    <th>CSS Content Buttons</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Text in HTML</td>
+                    <td>✅ Yes (affects SEO)</td>
+                    <td>❌ No (SEO-friendly)</td>
+                </tr>
+                <tr>
+                    <td>Keyword Density Impact</td>
+                    <td>❌ High impact</td>
+                    <td>✅ No impact</td>
+                </tr>
+                <tr>
+                    <td>Accessibility</td>
+                    <td>✅ Good (with proper labels)</td>
+                    <td>✅ Good (with ARIA labels)</td>
+                </tr>
+                <tr>
+                    <td>Visual Appearance</td>
+                    <td>✅ Normal</td>
+                    <td>✅ Identical</td>
+                </tr>
+                <tr>
+                    <td>Functionality</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="demo-section">
+        <h3>🔍 View Source</h3>
+        <p>Right-click and "View Page Source" to see the difference:</p>
+        <ul>
+            <li><strong>Traditional buttons:</strong> You'll see the button text in the HTML</li>
+            <li><strong>CSS content buttons:</strong> You'll only see <code>style="--button-content: 'Text'"</code> -
+                the actual text is not in the HTML!</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h3>🚀 Use the React Component</h3>
+        <p>Install the <code>css-content-button</code> package to use this technique in your React applications:</p>
+        <pre><code>npm install css-content-button</code></pre>
+        <pre><code>import { CssContentButton } from 'css-content-button';
+
+&lt;CssContentButton 
+  content="Play Video" 
+  variant="primary" 
+  onClick={() => console.log('clicked')}
+/&gt;</code></pre>
+    </div>
+</body>
+
+</html>
