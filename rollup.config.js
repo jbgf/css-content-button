@@ -30,7 +30,7 @@ module.exports = {
       tsconfig: './tsconfig.json'
     }),
     postcss({
-      extract: true,
+      inject: true,
       minimize: true
     })
   ],

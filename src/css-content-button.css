@@ -1,7 +1,10 @@
 /* CSS Content Button Styles */
 /* Uses CSS content property to display text without affecting HTML keyword density */
 
-:root {
+/* Keep package styles as low-priority defaults for consumer overrides. */
+@layer components {
+
+:where(:root) {
   /* Color palette */
   --primary-color: #007bff;
   --primary-hover: #0056b3;
@@ -25,7 +28,7 @@
   --transition: all 0.2s ease-in-out;
 }
 
-.css-content-button {
+:where(.css-content-button) {
   /* Reset button styles */
   border: none;
   background: none;
@@ -51,122 +54,124 @@
   /* This keeps the text out of HTML and doesn't affect keyword density */
 }
 
-.css-content-button::before {
+:where(.css-content-button)::before {
   content: var(--button-content);
   display: block;
 }
 
 /* Focus styles for accessibility */
-.css-content-button:focus-visible {
+:where(.css-content-button:focus-visible) {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 /* Size variants */
-.css-content-button--small {
+:where(.css-content-button--small) {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.4;
 }
 
-.css-content-button--medium {
+:where(.css-content-button--medium) {
   padding: 8px 16px;
   font-size: 16px;
   line-height: 1.5;
 }
 
-.css-content-button--large {
+:where(.css-content-button--large) {
   padding: 12px 24px;
   font-size: 18px;
   line-height: 1.6;
 }
 
 /* Color variants */
-.css-content-button--primary {
+:where(.css-content-button--primary) {
   background-color: var(--primary-color);
   color: white;
 }
 
-.css-content-button--primary:hover:not(:disabled) {
+:where(.css-content-button--primary:hover:not(:disabled)) {
   background-color: var(--primary-hover);
   transform: translateY(-1px);
 }
 
-.css-content-button--secondary {
+:where(.css-content-button--secondary) {
   background-color: var(--secondary-color);
   color: white;
 }
 
-.css-content-button--secondary:hover:not(:disabled) {
+:where(.css-content-button--secondary:hover:not(:disabled)) {
   background-color: var(--secondary-hover);
   transform: translateY(-1px);
 }
 
-.css-content-button--success {
+:where(.css-content-button--success) {
   background-color: var(--success-color);
   color: white;
 }
 
-.css-content-button--success:hover:not(:disabled) {
+:where(.css-content-button--success:hover:not(:disabled)) {
   background-color: var(--success-hover);
   transform: translateY(-1px);
 }
 
-.css-content-button--danger {
+:where(.css-content-button--danger) {
   background-color: var(--danger-color);
   color: white;
 }
 
-.css-content-button--danger:hover:not(:disabled) {
+:where(.css-content-button--danger:hover:not(:disabled)) {
   background-color: var(--danger-hover);
   transform: translateY(-1px);
 }
 
-.css-content-button--warning {
+:where(.css-content-button--warning) {
   background-color: var(--warning-color);
   color: #212529;
 }
 
-.css-content-button--warning:hover:not(:disabled) {
+:where(.css-content-button--warning:hover:not(:disabled)) {
   background-color: var(--warning-hover);
   transform: translateY(-1px);
 }
 
-.css-content-button--info {
+:where(.css-content-button--info) {
   background-color: var(--info-color);
   color: white;
 }
 
-.css-content-button--info:hover:not(:disabled) {
+:where(.css-content-button--info:hover:not(:disabled)) {
   background-color: var(--info-hover);
   transform: translateY(-1px);
 }
 
 /* Disabled state */
-.css-content-button--disabled {
+:where(.css-content-button--disabled) {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none !important;
 }
 
 /* Active state */
-.css-content-button:active:not(:disabled) {
+:where(.css-content-button:active:not(:disabled)) {
   transform: translateY(0);
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .css-content-button--large {
+  :where(.css-content-button--large) {
     padding: 10px 20px;
     font-size: 16px;
   }
 
-  .css-content-button--medium {
+  :where(.css-content-button--medium) {
     padding: 8px 14px;
     font-size: 15px;
   }
 
-  .css-content-button--small {
+  :where(.css-content-button--small) {
     padding: 6px 10px;
     font-size: 13px;
   }
+}
+
 }

@@ -4,7 +4,7 @@ A React component library for SEO-friendly buttons that use CSS `content` proper
 
 ## 🚀 Live Demo
 
-See this package in action at **[Phone Number Generator](https://www.phonenumbergenerator.app/)** - a tool that uses our CSS content button technique to avoid keyword density issues with repeated button text.
+See this package in action at **[Embed Code](https://embed-code.com/)** - a tool that uses our CSS content button technique to avoid keyword density issues with repeated button text.
 
 ## 🎯 Problem Solved
 
@@ -157,6 +157,10 @@ You can customize the appearance using CSS variables:
 }
 ```
 
+Package defaults are kept in a low-priority cascade layer with zero-specificity
+selectors, so consumer classes and Tailwind utility classes can override them
+without `!important`. Inline `style` values still have higher priority.
+
 ## 🔍 SEO Benefits Example
 
 **Traditional buttons (affects keyword density):**
@@ -196,6 +200,10 @@ The component maintains full accessibility:
 ```
 
 ## 🌐 Browser Support
+
+The override-friendly stylesheet uses CSS cascade layers and `:where()`. Use a
+modern browser that supports both features for predictable external style
+overrides.
 
 - Chrome ≥ 51
 - Firefox ≥ 54
@@ -320,4 +328,4 @@ Inspired by the SEO optimization technique of using CSS `content` property to av
 
 ---
 
-**Made with ❤️ for better SEO and cleaner HTML** 
+**Made with ❤️ for better SEO and cleaner HTML**
